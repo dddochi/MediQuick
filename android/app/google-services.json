@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "854557642376",
+    "project_id": "se24-hospitalresrvation",
+    "storage_bucket": "se24-hospitalresrvation.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:854557642376:android:8f98c17aca67805911d93d",
+        "android_client_info": {
+          "package_name": "com.dainyang.mediquick"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "854557642376-fi5cb3bpaei4ghnompfut0hps0484qjr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmtidfe54hQVyvmoqwQffW3xU1Ga6b7cE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "854557642376-fi5cb3bpaei4ghnompfut0hps0484qjr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
