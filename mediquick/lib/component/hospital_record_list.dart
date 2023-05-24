@@ -10,13 +10,13 @@ class HospitalRecordList extends StatelessWidget {
       child: Column(
         children: [
           HospitalRecordComponent(
-            hospitalName: '도그마루 병원',
+            hospitalName: '정병원',
             reservationDay: '2023.05.03',
             reservationTime: '13:30',
-            petName: '구아나',
-            breed: '이구아나',
+            name: '이우주',
+            gender: '남성',
             age: '3',
-            visitingReason: '먹이를 먹지 않음',
+            visitingReason: '차사고',
           ),
         ],
       ),

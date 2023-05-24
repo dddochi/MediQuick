@@ -4,8 +4,8 @@ class HospitalRecordComponent extends StatelessWidget {
   final String hospitalName;
   final String reservationDay;
   final String reservationTime;
-  final String petName;
-  final String breed;
+  final String name;
+  final String gender;
   final String age;
   final String visitingReason;
 
@@ -13,8 +13,8 @@ class HospitalRecordComponent extends StatelessWidget {
     required this.hospitalName,
     required this.reservationDay,
     required this.reservationTime,
-    required this.petName,
-    required this.breed,
+    required this.name,
+    required this.gender,
     required this.age,
     required this.visitingReason,
     Key? key,
@@ -44,6 +44,9 @@ class HospitalRecordComponent extends StatelessWidget {
               children: [
                 Text(
                   hospitalName, //병원 이름
+                  style: TextStyle(
+                    fontSize: 16.0,
+                  ),
                 ),
                 SizedBox(
                   width: 30.0,
@@ -59,6 +62,7 @@ class HospitalRecordComponent extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(height: 10.0,),
             Row(
               children: [
                 Container(
@@ -67,7 +71,7 @@ class HospitalRecordComponent extends StatelessWidget {
                     '동물 이름', //동물 이름
                   ),
                 ),
-                Text(petName),
+                Text(name),
               ],
             ),
             SizedBox(
@@ -81,7 +85,7 @@ class HospitalRecordComponent extends StatelessWidget {
                     '종',
                   ),
                 ),
-                Text(breed),
+                Text(gender),
               ],
             ),
             SizedBox(
