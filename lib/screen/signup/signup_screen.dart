@@ -2,6 +2,7 @@ import 'package:anipet/screen/main_screen/main_screen.dart';
 import 'package:anipet/screen/signup/signup_screen_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:firebase_auth/firebase_auth.dart'; //파이어베이스
 
 import '../../component/big_logo.dart';
 import '../../component/bottom_button.dart';
@@ -14,6 +15,9 @@ class SignUpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final SignupScreenController signupScreenController =
         Get.put(SignupScreenController());
+
+    final authentication = FirebaseAuth.instance;
+
     return Scaffold(
       body: SafeArea(
         child: SizedBox(
@@ -37,7 +41,15 @@ class SignUpScreen extends StatelessWidget {
                 ),
                 BottomButton(
                   buttonName: 'SIGNUP',
-                  onPressed: () {
+                  onPressed: () async {
+                    final newUser =
+                        await authentication.createUserWithEmailAndPassword(
+                            email:
+                                signupScreenController.emailTextController.text,
+                            password: signupScreenController
+                                .passwordTextController
+                                .text); //데이터베이스에 로그인 정보전달
+
                     Get.offAll(() => MainScreen());
                   },
                 ),

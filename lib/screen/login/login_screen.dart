@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:firebase_auth/firebase_auth.dart'; //파이어베이스
 
 import '../../component/big_logo.dart';
 import '../../component/bottom_button.dart';
@@ -14,6 +15,9 @@ class LogInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final LoginScreenController loginScreenController =
         Get.put(LoginScreenController());
+
+    final authentication = FirebaseAuth.instance;
+
     return Scaffold(
       body: SafeArea(
         child: SizedBox(
@@ -34,10 +38,24 @@ class LogInScreen extends StatelessWidget {
                 ),
                 BottomButton(
                   buttonName: 'LOGIN',
-                  onPressed: () {
-                    Get.offAll(() => MainScreen());
-                    loginScreenController.onLoginButtonClick();
-                    print('upload project to github!');
+                  onPressed: () async {
+                    try {
+                      final newUser =
+                          await authentication.signInWithEmailAndPassword(
+                              email:
+                                  loginScreenController.idTextController.text,
+                              password: loginScreenController
+                                  .passwordTextController.text); //로그인 정보 확인
+
+                      //로그인 성공
+                      Get.offAll(() => MainScreen());
+                      loginScreenController.onLoginButtonClick();
+                      print('upload project to github!');
+                    } catch (e) {
+                      //로그인 실패시
+                      print(e);
+                      Get.snackbar('로그인 오류', '아이디 혹은 비밀번호가 올바르지 않습니다.');
+                    }
                   },
                 ),
               ],

@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:firebase_auth/firebase_auth.dart'; //파이어베이스
 
 class SignupScreenController extends GetxController {
   Dio dio = Dio();
@@ -36,6 +37,7 @@ class SignupScreenController extends GetxController {
     print(petNameTextController);
     print(breedTextController);
     print(ageTextController);
+
     dio.post("http://서버주소", data: {
       'email': emailTextController.text,
       'id': idTextController.text,
